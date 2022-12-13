@@ -1,46 +1,46 @@
-# Getting Started with Create React App
+# 제목
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+원티드 프리온보딩 프론트엔드 - 선발 과제
 
-## Available Scripts
+## 설명
 
-In the project directory, you can run:
+원티드 프리온보딩 선발 과제이며, 로그인/회원가입 구현 및 Todo List를 구현했습니다.
 
-### `npm start`
+### 설치
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+```
+npm install
+```
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 실행
 
-### `npm test`
+cd wanted-pre-onboarding-frontend
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```
+npm start
+```
 
-### `npm run build`
+## 사용 라이브러리
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- axios - "^1.2.1"
+- react-router-dom - "^6.4.5"
+- react-hook-form - "^7.40.0"
+- styled-components - "^5.3.6"
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 실행 화면
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 메인 화면
 
-### `npm run eject`
+![로그인](https://user-images.githubusercontent.com/87647934/207287176-f0a4d795-1dad-4a5c-a50a-d1220a566cd9.gif)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### localStorage에 Token O
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Token 있으면](https://user-images.githubusercontent.com/87647934/207286782-c14322eb-e776-4b01-ae99-e3f711125915.gif)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### localStorage에 Token X
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+![Token 없으면](https://user-images.githubusercontent.com/87647934/207287237-2aaa734d-b4de-46d6-b345-750f3c0462ee.gif)
 
-## Learn More
+### Rodo List 동작
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Todo 동작](https://user-images.githubusercontent.com/87647934/207287211-a7a964c7-f208-45cc-8f46-379eb1040702.gif)
