@@ -1,17 +1,15 @@
 import { useState } from "react";
-import styled from "styled-components";
-import axios from "axios";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import styled from "styled-components";
+import { post } from "../../components/authAgent";
 
-interface FormValues {
+export interface FormValues {
   userId: string;
   userPw: string;
 }
 
 export default function Login() {
   const [clicked, isClicked] = useState<boolean>(false);
-  const navigate = useNavigate();
 
   const {
     register,
@@ -22,38 +20,20 @@ export default function Login() {
   const onSubmit = handleSubmit((data) => {
     if (clicked) {
       isClicked(false);
-      axios({
-        url: "https://pre-onboarding-selection-task.shop/auth/signup",
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: {
-          email: data.userId,
-          password: data.userPw,
-        },
-      })
-        .then((res) => {})
-        .catch((err) => console.log(err));
+      post(
+        "https://pre-onboarding-selection-task.shop/auth/signup",
+        data.userId,
+        data.userPw
+      );
     } else {
-      axios({
-        url: "https://pre-onboarding-selection-task.shop/auth/signin",
-        method: "post",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        data: {
-          email: data.userId,
-          password: data.userPw,
-        },
-      })
-        .then((res) => {
-          if (res.data.access_token) {
-            localStorage.setItem("token", res.data.access_token);
-            navigate("/todo");
-          }
-        })
-        .catch((err) => console.log(err));
+      post(
+        "https://pre-onboarding-selection-task.shop/auth/signin",
+        data.userId,
+        data.userPw
+      ).then((token) => {
+        localStorage.setItem("token", token);
+        window.location.replace("/");
+      });
     }
   });
 
