@@ -15,7 +15,7 @@ export default function EditTodo(props: todoProp) {
   const onClick = () => {
     if (props.todoList.todo !== value || props.todoList.isCompleted !== check) {
       axios({
-        url: `https://pre-onboarding-selection-task.shop/todos/:${props.todoList.id}`,
+        url: `https://pre-onboarding-selection-task.shop/todos/${props.todoList.id}`,
         method: "put",
         headers: {
           "Content-Type": "application/json",
@@ -26,9 +26,9 @@ export default function EditTodo(props: todoProp) {
           isCompleted: check,
         },
       })
-        .then((res) => {
-          console.log(res);
+        .then(() => {
           props.setIsClicked(false);
+          window.location.replace("/todo");
         })
         .catch((err) => console.log(err));
     }
