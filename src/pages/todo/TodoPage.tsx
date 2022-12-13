@@ -2,8 +2,8 @@ import { useEffect, useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import styled from "styled-components";
-import axios from "axios";
 import Todo from "./Todo";
+import { post, get } from "../../components/todoAgent";
 
 export interface todoType {
   id: number;
@@ -18,34 +18,16 @@ interface FormValues {
 
 export default function TodoPage() {
   const [todoLists, setTodoLists] = useState<todoType[]>([]);
-  const [id, setId] = useState<number>(0);
   const { register, handleSubmit } = useForm<FormValues>();
 
   useEffect(() => {
-    axios({
-      url: "https://pre-onboarding-selection-task.shop/todos",
-      method: "get",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    }).then((res) => {
-      setTodoLists(res.data);
+    get("https://pre-onboarding-selection-task.shop/todos").then((data) => {
+      setTodoLists(data);
     });
-  }, [id]);
+  }, []);
 
   const onSubmit = handleSubmit((data) => {
-    axios({
-      url: "https://pre-onboarding-selection-task.shop/todos",
-      method: "post",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-      data: {
-        todo: data.inputTodo,
-      },
-    }).then((res) => {
-      setId(res.data.id);
-    });
+    post("https://pre-onboarding-selection-task.shop/todos", data.inputTodo);
   });
 
   return (
