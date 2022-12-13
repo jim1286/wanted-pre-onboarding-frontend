@@ -6,6 +6,29 @@
 
 원티드 프리온보딩 선발 과제이며, 로그인/회원가입 구현 및 Todo List를 구현했습니다.
 
+## 폴더 구조
+
+src
+│  App.tsx
+│  index.tsx
+│
+├─components
+│      authAgent.ts
+│      todoAgent.ts
+│
+├─pages
+│  ├─main
+│  │      Login.tsx
+│  │      MainPage.tsx
+│  │
+│  └─todo
+│          EditTodo.tsx
+│          Todo.tsx
+│          TodoPage.tsx
+│
+└─styles
+        GlobalStyles.ts
+        
 ### 설치
 
 ```
@@ -41,6 +64,6 @@ npm start
 
 ![Token 없으면](https://user-images.githubusercontent.com/87647934/207287237-2aaa734d-b4de-46d6-b345-750f3c0462ee.gif)
 
-### Rodo List 동작
+### Todo List 동작
 
 ![Todo 동작](https://user-images.githubusercontent.com/87647934/207287211-a7a964c7-f208-45cc-8f46-379eb1040702.gif)
