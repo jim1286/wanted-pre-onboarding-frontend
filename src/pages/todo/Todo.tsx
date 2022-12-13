@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import { todoType } from "./TodoPage";
@@ -7,9 +7,21 @@ import EditTodo from "./EditTodo";
 interface todoProp {
   todoList: todoType;
 }
-
 export default function Todo(props: todoProp) {
   const [isClicked, setIsClicked] = useState<boolean>(false);
+  const onClick = () => {
+    axios({
+      url: `https://pre-onboarding-selection-task.shop/todos/${props.todoList.id}`,
+      method: "delete",
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    })
+      .then(() => {
+        window.location.replace("/todo");
+      })
+      .catch((err) => console.log(err));
+  };
   return (
     <Wrap>
       {isClicked ? (
@@ -23,7 +35,7 @@ export default function Todo(props: todoProp) {
             readOnly
           ></input>
           <button onClick={() => setIsClicked(true)}>수정</button>
-          <button>삭제</button>
+          <button onClick={onClick}>삭제</button>
         </>
       )}
     </Wrap>
