@@ -8,26 +8,22 @@
 
 ## 폴더 구조
 
-src
-│  App.tsx
-│  index.tsx
-│
-├─components
-│      authAgent.ts
-│      todoAgent.ts
-│
-├─pages
-│  ├─main
-│  │      Login.tsx
-│  │      MainPage.tsx
-│  │
-│  └─todo
-│          EditTodo.tsx
-│          Todo.tsx
-│          TodoPage.tsx
-│
-└─styles
-        GlobalStyles.ts
+📦src
+ ┣ 📂components
+ ┃ ┣ 📜authAgent.ts
+ ┃ ┗ 📜todoAgent.ts
+ ┣ 📂pages
+ ┃ ┣ 📂main
+ ┃ ┃ ┣ 📜Login.tsx
+ ┃ ┃ ┗ 📜MainPage.tsx
+ ┃ ┗ 📂todo
+ ┃ ┃ ┣ 📜EditTodo.tsx
+ ┃ ┃ ┣ 📜Todo.tsx
+ ┃ ┃ ┗ 📜TodoPage.tsx
+ ┣ 📂styles
+ ┃ ┗ 📜GlobalStyles.ts
+ ┣ 📜App.tsx
+ ┗ 📜index.tsx
         
 ### 설치
 
