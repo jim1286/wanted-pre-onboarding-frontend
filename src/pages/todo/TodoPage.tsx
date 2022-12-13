@@ -97,4 +97,5 @@ const AddBtn = styled.button``;
 const TodoWrap = styled.section`
   width: 80%;
   height: 95%;
+  overflow-y: scroll;
 `;
