@@ -33,9 +33,7 @@ export default function Login() {
           password: data.userPw,
         },
       })
-        .then((res) => {
-          console.log(res);
-        })
+        .then((res) => {})
         .catch((err) => console.log(err));
     } else {
       axios({
@@ -50,7 +48,6 @@ export default function Login() {
         },
       })
         .then((res) => {
-          console.log(res);
           if (res.data.access_token) {
             localStorage.setItem("token", res.data.access_token);
             navigate("/todo");
