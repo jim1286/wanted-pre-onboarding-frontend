@@ -1,8 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import axios from "axios";
-import { todoType } from "./TodoPage";
 import EditTodo from "./EditTodo";
+import { todoType } from "./TodoPage";
+import { del } from "../../components/todoAgent";
 
 interface todoProp {
   todoList: todoType;
@@ -10,17 +10,7 @@ interface todoProp {
 export default function Todo(props: todoProp) {
   const [isClicked, setIsClicked] = useState<boolean>(false);
   const onClick = () => {
-    axios({
-      url: `https://pre-onboarding-selection-task.shop/todos/${props.todoList.id}`,
-      method: "delete",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("token")}`,
-      },
-    })
-      .then(() => {
-        window.location.replace("/todo");
-      })
-      .catch((err) => console.log(err));
+    del("https://pre-onboarding-selection-task.shop/todos/", props.todoList.id);
   };
   return (
     <Wrap>

@@ -1,8 +1,8 @@
-import { todoType } from "./TodoPage";
-import styled from "styled-components";
-import axios from "axios";
 import { useState } from "react";
 import { Dispatch, SetStateAction } from "react";
+import { todoType } from "./TodoPage";
+import styled from "styled-components";
+import { put } from "../../components/todoAgent";
 
 interface todoProp {
   todoList: todoType;
@@ -14,23 +14,15 @@ export default function EditTodo(props: todoProp) {
   const [check, setCheck] = useState<boolean>(props.todoList.isCompleted);
   const onClick = () => {
     if (props.todoList.todo !== value || props.todoList.isCompleted !== check) {
-      axios({
-        url: `https://pre-onboarding-selection-task.shop/todos/${props.todoList.id}`,
-        method: "put",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
-        },
-        data: {
-          todo: value,
-          isCompleted: check,
-        },
-      })
-        .then(() => {
-          props.setIsClicked(false);
-          window.location.replace("/todo");
-        })
-        .catch((err) => console.log(err));
+      put(
+        "https://pre-onboarding-selection-task.shop/todos/",
+        props.todoList.id,
+        value,
+        check
+      ).then(() => {
+        props.setIsClicked(false);
+        window.location.replace("/todo");
+      });
     }
   };
 
