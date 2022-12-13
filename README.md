@@ -8,6 +8,7 @@
 
 ## 폴더 구조
 
+```
 📦src
  ┣ 📂components
  ┃ ┣ 📜authAgent.ts
@@ -24,6 +25,7 @@
  ┃ ┗ 📜GlobalStyles.ts
  ┣ 📜App.tsx
  ┗ 📜index.tsx
+ ```
         
 ### 설치
 
