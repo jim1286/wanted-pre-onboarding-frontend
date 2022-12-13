@@ -1,8 +1,16 @@
-import React from "react";
-import MainPage from "./pages/MainPage";
+import MainPage from "./pages/main/MainPage";
+import TodoPage from "./pages/todo/TodoPage";
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-  return <MainPage />;
+  return (
+    <>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route path="/todo" element={<TodoPage />} />
+      </Routes>
+    </>
+  );
 }
 
 export default App;
